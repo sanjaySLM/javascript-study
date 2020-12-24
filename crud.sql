@@ -1,0 +1,1 @@
+create table table_name (id int ,name varchar (23));
