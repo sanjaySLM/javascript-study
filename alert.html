@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <title>my first webpage</title>
+    
+</head>
+
+<body>
+    <div class="page" style="height: 100%;width: 100%;">
+        <h1>This is my first web page</h1>
+        <button id="send-button" class="page" >send</button>
+    </div>
+    <script>
+        var arr = [10, 20, 15, 25, 35]
+function ifclicked() {
+for (var i = 0; i < arr.length; i++) {
+    alert("the number is " + arr[i])
+}
+}
+if (arr.length>0){
+document.getElementById("send-button").addEventListener("click",ifclicked)
+}
+
+</script>
+</body>
+
+</html>
