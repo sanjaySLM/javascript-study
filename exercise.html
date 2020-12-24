@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>basic forms</title>
+</head>
+
+<body>
+    <h1>Exercise form</h1>
+    <div>
+        <p>
+            <label>value 1 :</label>
+            <input id="val1" type="text">
+        </p>
+        <p>
+            <label>value 2 :</label>
+            <input id="val2" type="text">
+        </p> select operand :
+        <button id="plus" onclick="arithmeticOperations('add')">Add</button>
+        <button id="minus" onclick="arithmeticOperations('sub')">Minus</button>
+        <button id="mul" onclick="arithmeticOperations('mul')">Multiple</button>
+        <button id="div" onclick="arithmeticOperations('div')">Division</button>
+        <p>
+            <label>Output is</label>
+            <input id="op" type="text">
+        </p>
+    </div>
+    <script>
+        function arithmeticOperations(param) {
+            var inputOne = parseInt(document.getElementById("val1").value);
+            var inputTwo = parseInt(document.getElementById("val2").value);
+            var output;
+            switch (param) {
+                case "add":
+                    output = inputOne + inputTwo;
+                    break;
+                case "sub":
+                    output = inputOne - inputTwo;
+                    break;
+                case "mul":
+                    output = inputOne * inputTwo;
+                    break;
+                case "div":
+                    output = inputOne / inputTwo;
+                    break;
+            }
+            document.getElementById("op").value =output;
+        }
+    </script>
+</body>
+
+</html>
