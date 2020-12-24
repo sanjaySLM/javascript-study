@@ -1,0 +1,33 @@
+<html>
+<body>
+    <button id="send-button" class="page">send</button>
+    <script>
+        var n1 = "kumar";
+        var n2 = "sanjay";
+        var op = "";
+        var checklength
+        if (n1.length > n2.length) {
+                checklength = n1.length;
+            }
+            else {
+                checklength = n2.length;
+            };
+        function ifclicked() {
+         for (var i = 0; i < checklength.length; i++) {
+                if (n1[i] && n2[i]) {
+                    op = op + n1[i] + n2[i]
+                }
+                else {
+                    op = op + n1[i] || n2[i]
+                }
+            };
+            alert(op)
+        };
+        if (checklength.length > 0) {
+            document.getElementById("send-button").addEventListener("click", ifclicked)
+        }
+        console.log(checklength)
+      </script>
+</body>
+
+</html>
