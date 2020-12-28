@@ -1,91 +1,135 @@
 <html>
-
-<head>
+  <head>
     <title>functionlast</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <center>
+      <h1 style="background-color: coral; color: cadetblue">contact Form</h1>
+      <div style="background-color: cadetblue; color: black">
+        <input style="display: none" type="number" id="id" /><br />
 
-         <h1 style="background-color: coral;color: cadetblue;">contact Form</h1>
-    <div style="background-color:cadetblue; color:black;">
-    <label for="fname">FIRST NAME:</label>
-    <input type="text" id="fname"><br>
+        <label for="fname">FIRST NAME:</label>
+        <input type="text" id="fname" /><br />
 
-    <label for="lname">LAST NAME:</label>
-    <input type="text" id="lname"><br>
+        <label for="lname">LAST NAME:</label>
+        <input type="text" id="lname" /><br />
 
-    <label for="gender">GENDER:</label>
-    <input type="text" id="gender"><br>
+        <label for="gender">GENDER:</label>
+        <input type="text" id="gender" /><br />
 
-    <label for="age">AGE:</label>
-    <input type="number" id="age"><br>
+        <label for="age">AGE:</label>
+        <input type="number" id="age" /><br />
 
-    <label for="course">COURSE:</label>
-    <input type="text" id="course"><br>
+        <label for="course">COURSE:</label>
+        <input type="text" id="course" /><br />
 
-    <button id="save" onclick="saving()">save</button><br>
+        <button id="save" onclick="saving()">save</button><br />
 
-    <button id="log" onclick="loging()">log data</button><br>
-       
-    <label>Delect:</label>
-    <input type="number" id="ndel" >
-    <button id="del" onclick="delect()"> confirm-delect</button><br>
+        <button id="log" onclick="loging()">log data</button><br />
 
-    <!-- <label>Edit:</label>
-    <input type="text" id="nedit" >
-    <button id="edit" onclick="editing()"> Edit</button><br> -->
-    </div></center>
+        <label>Delete:</label>
+        <input type="number" id="ndel" />
+        <button id="del" onclick="delect()">confirm-delete</button><br />
 
+        <label>Edit:</label>
+        <input type="number" id="nedit" />
+        <button id="edit" onclick="editing()">Edit</button><br />
+      </div>
+    </center>
 
     <script>
-                var array = [];
-                var firstname ;
-                var lastname  ;
-                var gender ;
-                var age ;
-                var course; 
+      var array = [];
+      var firstname;
+      var lastname;
+      var gender;
+      var age;
+      var course;
+      var id;
 
-    function saving() {
+      function saving() {
+        id = document.getElementById("id").value;
+        firstname = document.getElementById("fname").value;
+        lastname = document.getElementById("lname").value;
+        gender = document.getElementById("gender").value;
+        age = document.getElementById("age").value;
+        course = document.getElementById("course").value;
+        if(!firstname){
+            alert("Enter the First Name");
+            document.getElementById("fname").focus();
+        }
+        var obj = { firstname, lastname, gender, age, course };
+        if (id) {
+          if (array[id].firstname) {
+            array[id].firstname = document.getElementById("fname").value;
+          }
 
-              
-                firstname = document.getElementById("fname").value;
-                lastname = document.getElementById("lname").value;
-                gender = document.getElementById("gender").value;
-                age = document.getElementById("age").value;
-                course = document.getElementById("course").value;
+          if (array[id].lastname) {
+            array[id].lastname = document.getElementById("lname").value;
+          }
 
-                var obj = {};
-                obj = { firstname, lastname, gender, age, course };
-                array.push(obj);
-                console.log(array);
+          if (array[id].gender) {
+            array[id].gender = document.getElementById("gender").value;
+          }
 
-                document.getElementById("fname").value=null;
-                document.getElementById("lname").value=null;
-                document.getElementById("gender").value=null;
-                document.getElementById("age").value=null;
-                document.getElementById("course").value=null;s
+          if (array[id].age) {
+            array[id].age = document.getElementById("age").value;
+          }
 
-                };
+          if (array[id].course) {
+            array[id].course = document.getElementById("course").value;
+          }
+        } else {
+          array.push(obj);
+        }
+        console.log(array);
+        document.getElementById("fname").value = null;
+        document.getElementById("lname").value = null;
+        document.getElementById("gender").value = null;
+        document.getElementById("age").value = null;
+        document.getElementById("course").value = null;
+        document.getElementById("ndel").value = null;
+        document.getElementById("nedit").value = null;
+      }
 
+      function loging() {
+        console.log(array);
+      }
 
-    function loging(){
-        console.log(array)
-    }            
+      function delect() {
+        array.splice(document.getElementById("ndel").value - 1, 1);
+        console.log(array);
+      }
 
-    function delect(){
-        array.splice((document.getElementById("ndel").value-1),1)
-        console.log(array)
-    }
+      function editing() {
+        var i = document.getElementById("nedit").value - 1;
+        if(!array[i]){
+            return;
+        }
+        if (array[i]) {
+          document.getElementById("id").value = i;
+        }
 
-    // function editing(){
-    //     var  i=document.getElementById("nedit").value;
-    //     document.getElementById[("fname").value=array[i].firstname
+        if (array[i].firstname) {
+          document.getElementById("fname").value = array[i].firstname;
+        }
 
-    // }
+        if (array[i].lastname) {
+          document.getElementById("lname").value = array[i].lastname;
+        }
 
+        if (array[i].gender) {
+          document.getElementById("gender").value = array[i].gender;
+        }
+
+        if (array[i].age) {
+          document.getElementById("age").value = array[i].age;
+        }
+
+        if (array[i].course) {
+          document.getElementById("course").value = array[i].course;
+        }
+      }
     </script>
-</body>
-
+  </body>
 </html>
