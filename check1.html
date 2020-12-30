@@ -1,0 +1,168 @@
+<html>
+
+<head>
+    <title>functionlast</title>
+</head>
+
+<body>
+
+    <center>
+
+        <h1 style="color: cadetblue;">contact Form</h1>
+        <div style="background-color:cadetblue; color:black;">
+            <fieldset>
+                <legend style="background-color: blanchedalmond;">Information inputs</legend>
+            <label for="fname">FIRST NAME:</label><br>
+            <input type="text" id="fname" style="width: 15%;"><br>
+
+            <label for="lname">LAST NAME:</label><br>
+            <input type="text" id="lname" style="width: 15%;"><br>
+
+            <label for="gender">GENDER:</label><br>
+            <input type="text" id="gender" style="width: 15%;"><br>
+
+            <label for="age">AGE:</label><br>
+            <input type="number" id="age" min="1" max="100" style="width: 15%;"><br>
+
+            <label for="course">COURSE:</label><br>
+            <input type="text" id="course" style="width: 15%;"><br><br>
+
+            <button id="save" onclick="saving()" style="width: 5%;">save</button><br><br>
+
+            <button id="log" onclick="loging()" style="width: 5%;">log data</button><br>
+
+        </fieldset><br>
+        <fieldset>
+            <legend style="background-color: blanchedalmond;">Editing inputs</legend>
+
+            <label>Delete:</label><br>
+            <input type="number" id="ndel" style="width: 15%;"><br>
+            <button id="del" onclick="deleting()" style="width: 10%;"> confirm-delete</button><br>
+
+            <label>Edit:</label><br>
+            <input type="number" id="nedit" style="width: 15%;"><br>
+            <button id="edit" onclick="editing()" style="width: 10%;"> Edit</button><br>
+        </fieldset>
+        </div>
+    </center>
+
+
+    <script>
+        var array = [];
+        var firstname;
+        var lastname;
+        var gender;
+        var age;
+        var course;
+        var i;
+        var obj = {};
+        var id = 0;
+
+        function saving() {
+            if (document.getElementById("nedit").value) {
+                array[i].firstname = document.getElementById("fname").value
+                array[i].lastname = document.getElementById("lname").value
+                array[i].gender = document.getElementById("gender").value
+                array[i].age = document.getElementById("age").value
+                array[i].course = document.getElementById("course").value
+
+                console.log(array)
+
+                document.getElementById("nedit").value = null;
+                document.getElementById("fname").value = null;
+                document.getElementById("lname").value = null;
+                document.getElementById("gender").value = null;
+                document.getElementById("age").value = null;
+                document.getElementById("course").value = null;
+            }
+            else {
+                if (document.getElementById("fname").value &&
+                    document.getElementById("lname").value &&
+                    document.getElementById("gender").value &&
+                    document.getElementById("age").value &&
+                    document.getElementById("course").value
+                   )
+                 {
+                    firstname = document.getElementById("fname").value;
+                    lastname = document.getElementById("lname").value;
+                    gender = document.getElementById("gender").value;
+                    age = document.getElementById("age").value;
+                    course = document.getElementById("course").value;
+
+
+                    obj = { firstname, lastname, gender, age, course };
+                    array.push(obj);
+                  
+                     for (var j=0;j<=array.length; j++)
+                    {  if (
+                        array[j].firstname!=document.getElementById("fname").value ||
+                        array[j].lastname!=document.getElementById("lname").value ||
+                        array[j].gender!=document.getElementById("gender").value ||
+                        array[j].age!=document.getElementById("age").value ||
+                        array[j].course!=document.getElementById("course").value)
+
+
+                        console.log(array);
+                        else {
+                            alert ("poda punda")
+                        }
+
+                    }
+
+
+
+
+
+
+
+
+
+                    
+                    
+                    // clearing values for next save 
+                    document.getElementById("fname").value = null;
+                    document.getElementById("lname").value = null;
+                    document.getElementById("gender").value = null;
+                    document.getElementById("age").value = null;
+                    document.getElementById("course").value = null;
+                }
+                else {
+                    alert("Enter all values")
+                }
+            }
+        };
+        function loging() {
+            if (array[0]) {
+                console.log(array)
+            }
+            else {
+                alert("Haven't Entered any data")
+            }
+        }
+        function deleting() {
+            if (document.getElementById("ndel").value && array[(document.getElementById("ndel").value-1)]) {
+                array.splice((document.getElementById("ndel").value - 1), 1)
+                console.log(array);
+                document.getElementById("ndel").value=null;
+            }
+            else {
+                alert("Enter the Data first")
+            }
+        }
+        function editing() {
+            if (document.getElementById("nedit").value && (document.getElementById("nedit").value) - 1 ) {
+                i = (document.getElementById("nedit").value) - 1
+                document.getElementById("fname").value = array[i].firstname;
+                document.getElementById("lname").value = array[i].lastname;
+                document.getElementById("gender").value = array[i].gender;
+                document.getElementById("age").value = array[i].age;
+                document.getElementById("course").value = array[i].course;
+            }
+            else {
+                alert("Enter the Data")
+            }
+        }
+    </script>
+</body>
+
+</html>
