@@ -1,0 +1,35 @@
+<html>
+
+<body>
+    <button id="send-button" onclick="sanjay('add')">send</button>
+
+    <script>
+        var a = 1
+        var b = 2
+        var c = 3
+        //document.getElementById("send-button").addEventListener("click", sanjay.bind(this, "add"))
+        // document.getElementById("send-button").addEventListener("click", sanjay)
+
+
+        function sanjay(operand) {
+            if (operand == "add") {
+                c = a + b
+            }
+            else if (operand == "sub") {
+                c = b - a
+            }
+            else if (operand == "mul") {
+                c = b * a
+            }
+            else if (operand == "div") {
+                c = b % a
+            }
+            else { c = 0 }
+            alert("op is" + c)
+        }
+
+             //   sanjay("mul")
+    </script>
+</body>
+
+</html>

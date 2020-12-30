@@ -1,0 +1,40 @@
+<html>
+
+<body>
+    <script>
+        var array = [{ a1: 1, a2: 1, a3: 1 },
+        { a2: 1 },
+        { a1: 1, a3: 1 },
+        { a3: 1 },
+        { a2: 1 },
+        { a1: 1, a3: 1 }
+        ];
+        var sum = 0;
+        // const sumOfa1 = array.map(obj => obj.a1);
+        // const sumOfa2 = array.map(obj => obj.a2);
+        // const sumOfa3 = array.map(obj => obj.a3);
+        for (var i = 0; i < array.length; i++) {
+            console.log(array[i]);
+            
+            if (array[i].a1) {
+                sum += array[i].a1
+            }
+            
+            if (array[i].a2) {
+                sum += array[i].a2
+            }
+            if (array[i].a3) {
+                sum += array[i].a3
+            };
+        }
+        // const join = [...sumOfa3, ...sumOfa2, ...sumOfa1];
+        // join.forEach(ele => {
+        //     if (ele) {
+        //         sum += ele;
+        //     }
+        // })
+        console.log(sum);
+    </script>
+</body>
+
+</html>

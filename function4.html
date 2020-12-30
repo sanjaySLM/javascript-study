@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>calc</title>
+    <title>function4</title>
 </head>
 
 <body>
@@ -20,21 +20,30 @@
         <button id="mul" onclick="arithmeticOperations('mul')">Multiple</button>
         <button id="div" onclick="arithmeticOperations('div')">Division</button>
 
-        <button id="equal" onclick="result('equal')">==</button>
+        <button id="equal" onclick="result()">==</button>
 
         <label>Output is</label>
         <input id="answer" type="text">
 
+
+        <label>clear</label>
+        <button id="clear" onclick="stop()">Clear</button>
+
     </div>
     <script>
-        var x=""
-        function arithmeticOperations(x) {
+        var x="";
+        var timeout;
+        var interval;
+
+
+        function arithmeticOperations(c){
+              x=c
+        }
+        function result(){
             var inputOne = parseInt(document.getElementById("val1").value);
             var inputTwo = parseInt(document.getElementById("val2").value);
             var output=0;
-            
-                   
-            switch (x) {
+                switch (x) {
                 case "add":
                     output = inputOne + inputTwo;
                     break;
@@ -48,11 +57,19 @@
                     output = inputOne / inputTwo;
                     break;
             }
-            document.getElementById("answer").value = output
+            timeout=setTimeout(function(){
+            document.getElementById("answer").value = output;
+        },4000);
 
+        interval=setInterval(function(){
+            console.log(document.getElementById("answer").value = output);
+            },1500);
         }
-        
-    </script>
+
+        function stop (){
+            clearInterval(interval)
+        }
+         </script>
 </body>
 
 </html>

@@ -1,0 +1,29 @@
+<html>
+<body>
+    <script>
+        var array = [{ val1: 7, val2: 10 },
+{ val1: 13, val2: 22 },
+{ val1: 17 },
+{ val1: 19, val2: 11 },
+{ val2: 1 },
+{}];
+var sum = 0;
+for (var i = 0; i < array.length; i++) {
+    if (array[i].val1 || array[i].val2)
+    if (array[i].val1 && array[i].val2) {
+        sum = sum + array[i].val1 + array[i].val2
+        console.log(sum)
+    }
+    else if (array[i].val2) {
+        sum = sum + array[i].val2
+        console.log(sum)
+    }
+    else {
+        sum = sum + array[i].val1
+        console.log(sum)
+    }
+};
+    </script>
+    <h1 style="color: yellowgreen; background-color: tomato;">My Sample Program</h1>
+</body>
+</html>

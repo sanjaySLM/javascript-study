@@ -1,0 +1,39 @@
+<html>
+
+<body>
+    <button id="plus" onclick="sanjay('add')">add</button>
+    <button id="minus" onclick="sanjay('sub')">minus</button>
+    <button id="mul" onclick="sanjay('mul')">multiple</button>
+    <button id="div" onclick="sanjay('div')">division</button>
+
+
+
+
+    <script>
+        var a = 1
+        var b = 2
+        var c = 3
+
+        function sanjay (operand){
+            switch (operand){
+                case "add":
+                c=a+b;
+                break;
+                case "sub":
+                c=a-b;
+                break;
+                case "mul":
+                c=a*b;
+                break;
+                case "div":
+                c=a%b;
+                break;
+            }
+            alert("operand"+" "+operand+" "+c)
+        }
+
+
+    </script>
+</body>
+
+</html>

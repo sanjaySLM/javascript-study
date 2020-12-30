@@ -1,0 +1,124 @@
+<html>
+
+<head>
+    <title>functionlast</title>
+</head>
+
+<body>
+
+    <center>
+
+        <h1 style="background-color: coral;color: cadetblue;">contact Form</h1>
+        <div style="background-color:cadetblue; color:black;">
+            <label for="fname">FIRST NAME:</label>
+            <input type="text" id="fname"><br>
+
+            <label for="lname">LAST NAME:</label>
+            <input type="text" id="lname"><br>
+
+            <label for="gender">GENDER:</label>
+            <input type="text" id="gender"><br>
+
+            <label for="age">AGE:</label>
+            <input type="number" id="age" max=90><br>
+
+            <label for="course">COURSE:</label>
+            <input type="text" id="course"><br>
+
+            <button id="save" onclick="saving()">save</button><br>
+
+            <button id="log" onclick="loging()">log data</button><br>
+
+            <label>Delect:</label>
+            <input type="number" id="ndel">
+            <button id="del" onclick="delect()"> confirm-delect</button><br>
+
+            <label>Edit:</label>
+            <input type="text" id="nedit">
+            <button id="edit" onclick="editing()"> Edit</button><br>
+        </div>
+        <div>
+            <table border="1">
+                <tr>
+                    <th>s.no</th>
+                    <th>f.name</th>
+                    <th>l.name</th>
+                    <th>age</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td id="tfname"></td>
+                </tr>
+            </table>
+        </div>
+    </center>
+
+
+
+
+
+    <script>
+        var array = [];
+        var firstname;
+        var lastname;
+        var gender;
+        var age;
+        var course;
+        var i;
+        var obj = {};
+
+        function saving() {
+            if (array[i]) {
+                array[i].firstname = document.getElementById("fname").value
+                array[i].lastname = document.getElementById("lname").value
+                array[i].gender = document.getElementById("gender").value
+                array[i].age = document.getElementById("age").value
+                array[i].course = document.getElementById("course").value
+
+                console.log(array)
+
+                document.getElementById("nedit").value = null;
+                document.getElementById("fname").value = null;
+                document.getElementById("lname").value = null;
+                document.getElementById("gender").value = null;
+                document.getElementById("age").value = null;
+                document.getElementById("course").value = null;
+            }
+            else {
+                firstname = document.getElementById("fname").value;
+                lastname = document.getElementById("lname").value;
+                gender = document.getElementById("gender").value;
+                age = document.getElementById("age").value;
+                course = document.getElementById("course").value;
+
+
+                obj = { firstname, lastname, gender, age, course };
+                array.push(obj);
+                console.log(array);
+// clearing values for next save 
+                document.getElementById("fname").value = null;
+                document.getElementById("lname").value = null;
+                document.getElementById("gender").value = null;
+                document.getElementById("age").value = null;
+                document.getElementById("course").value = null;
+            }
+        };
+            function loging() {
+            console.log(array)
+        }
+        function delect() {
+            array.splice((document.getElementById("ndel").value - 1), 1)
+            console.log(array)
+        }
+        function editing() {
+            i = (document.getElementById("nedit").value) - 1;
+            document.getElementById("fname").value = array[i].firstname;
+            document.getElementById("lname").value = array[i].lastname;
+            document.getElementById("gender").value = array[i].gender;
+            document.getElementById("age").value = array[i].age;
+            document.getElementById("course").value = array[i].course;
+        }
+    </script>
+</body>
+
+</html>

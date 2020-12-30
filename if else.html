@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <script>
+            var array;
+array = [{ house: "2bhk", bedroom: 0, kitchen: 0 },
+{ house: 0, bedroom: "16*16", kitchen: "g" },
+{ house: "7bhk", bedroom: 0, kitchen: "no" }];
+var house = "";
+var bedroom="";
+var kitchen="";
+for (var i = 0; i < array.length; i++) {
+        // console.log("Inside")
+        console.log(array[i])
+        if (array[i].house===0) {
+            house = "there is no house"
+            console.log(house);
+        }
+        
+
+        if (array[i].bedroom === 0) {
+            bedroom = "there is no bedroom"
+            console.log(bedroom);
+
+        }
+        if (array[i].kitchen === 0) {
+            kitchen = "there is no kitchen"
+            console.log(kitchen);
+        }
+        
+}
+    
+        </script>
+    </body>
+</html>

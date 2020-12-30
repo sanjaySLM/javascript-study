@@ -1,0 +1,41 @@
+<html>
+    <body>
+        <div>
+            <label for="fname">FIRST NAME:</label>
+            <input type="text" id="fname"><br>
+
+     
+
+    <button id="save" onclick="saving()"> Edit</button><br>
+        </div>
+        <div>
+            <table border="1" width="25%" >
+                <tr>
+                    <th>
+                        firstname
+                    </th>
+                </tr>
+                <tr></tr>
+                    <td id="tfname"></td>
+                </tr>
+            </table>
+        </div>
+
+        <script>
+            function saving(){
+                document.getElementById("tfname").innerHTML= document.getElementById("fname").value
+            }
+
+             
+            
+              
+
+                   
+        
+
+
+
+        </script>
+
+    </body>
+</html>

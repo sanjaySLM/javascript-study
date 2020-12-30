@@ -1,0 +1,31 @@
+<html>
+<body>
+    <button id="send-button" class="page">send</button>
+    <script>
+        
+
+
+            var n1 = "kumar";
+            var n2 = "sanjay";
+            var op = "";
+            var checklength = n1.length >= n2.length ? n1.length : n2.length;
+            // if (n1.length > n2.length) {
+            //         checklength = n1.length;
+            //     }
+            //     else {
+            //         checklength = n2.length;
+            //     };
+            function ifclicked(){
+            for (var i = 0; i < checklength; i++) {
+                op = op+(n1[i] || "") + (n2[i] || "")
+            }
+            alert(op)
+        };
+        
+    if (checklength>0){
+        document.getElementById("send-button").addEventListener("keydown", ifclicked)
+    }
+    </script>
+</body>
+
+</html>
